@@ -77,6 +77,7 @@ Display is a [UCTRONICS 3.5 Inch HDMI display](https://www.amazon.com/gp/product
     ...
     exit(0)
     ```
+6. For Ubuntu autologin: https://selivan.github.io/2017/12/27/console-autologin-systemd-ubuntu.html
     
 ### Notes
 * *Sunrise, sunset, daylight duration, and solar time were calculated from the [Sunrise Equation](https://en.wikipedia.org/wiki/Sunrise_equation), which uses the coordinates provided in .config.  Using the default values for longitude and latitude may result in inaccurate calculations.
