@@ -14,6 +14,8 @@
     "Romania": "Europe/Bucharest",
     "Malaysia": "Asia/Kuala_Lumpur",
     "China": "Asia/Shanghai",
-    "Pacific": "US/Pacific"
+    "Pacific": "US/Pacific",
+    "Singapore": "Singapore",
+    "Sydney": "Australia/Sydney"
   }
 }

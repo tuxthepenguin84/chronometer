@@ -12,7 +12,6 @@ import math
 import random
 import argparse
 import pytz
-import time
 
 ap = argparse.ArgumentParser()
 ap.add_argument('-d', action='store_true', help='Debug mode')
@@ -88,7 +87,7 @@ try:
 
     for i in range(0,len(time_zone_list), 2):
         _time_zone_list[i] = time_zone_list[i//2]
-        _time_zone_list[i+1] = time_zone_list[i//2+4]
+        _time_zone_list[i+1] = time_zone_list[i//2+5]
 
     time_zone_list = _time_zone_list
 
@@ -544,9 +543,8 @@ def main():
             time_table[YEAR][VALUE] = _now_loc.year + (day_of_year(_now_loc) + time_table[DAY][VALUE] - int(time_table[DAY][VALUE])) / days_this_year
             time_table[CENTURY][VALUE] = (time_table[YEAR][VALUE] - 1) / 100 + 1
 
-            screen += themes[0]
-            screen += ("{: ^" + str(columns) + "}\n").format(_now_loc.strftime("%I:%M:%S %p " + current_tz + " - %A %B %d, %Y")).upper()# + themes[0]
-            screen += themes[0]
+            screen += themes[3]
+            screen += ("{: ^" + str(columns) + "}\n").format(_now_loc.strftime("%I:%M:%S %p " + current_tz + " - %A %B %d, %Y")).upper() + themes[0]
             screen += corner_ul + h_bar * (columns - 2) + corner_ur + "\n"
 
             for i in range(7):
@@ -599,7 +597,7 @@ def main():
                 time_List[i] = '{}{:02}:{:02}:{:02}.{:05}'.format(sign, int(hours), int(minutes), int(seconds), int(subs))
 
             leap_stats = ["LSHFT" + time_List[0],
-                          #h_bar_single * 20,
+                          h_bar_single * 20,
                           "SUNRI" + time_List[1],
                           "SUNST" + time_List[2],
                           "DAYLN" + time_List[3]
@@ -693,7 +691,7 @@ def main():
                 off=float_fixed(ntpoff, 7, True)
             )
 
-            screen += themes[0] + " " + ntp_str_left + ((columns - len(ntp_str_left + ntp_str_right)-2) * " ") + ntp_str_right + " "
+            screen += themes[3] + " " + ntp_str_left + ((columns - len(ntp_str_left + ntp_str_right)-2) * " ") + ntp_str_right + " "
             screen += themes[1]
 
             # Switch to the header color theme
@@ -705,7 +703,6 @@ def main():
 
             loop_time = datetime.utcnow() - start_time
             print(screen, end="")
-            time.sleep(0.1)
 
         except KeyboardInterrupt:
             return
